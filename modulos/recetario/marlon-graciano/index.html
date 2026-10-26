@@ -1,37 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>G2-CRE-C01 CategoriaRecetaEditor - Guardar</title>
-<link rel="stylesheet" href="../contenido.css">
-<link rel="stylesheet" href="./estilo.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilo.css">
+  <title>Editor - Marlon Graciano</title>
 </head>
 <body>
-<div class="contenedor">
-<h2 class="titulo">CategoriaRecetaEditor - Operacion Guardar</h2>
-<form id="form-categoria" class="formulario">
-<label class="label">Nombre*</label>
-<input type="text" id="nombre" class="input" maxlength="50" placeholder="Ingrese nombre categoria">
-<span id="error-nombre" class="error" style="color:red;display:none"></span>
-
-<label class="label">Descripcion</label>
-<textarea id="descripcion" class="input" placeholder="Descripcion opcional"></textarea>
-
-<label class="label">Estado</label>
-<select id="estado" class="input">
-<option value="Activa">Activa</option>
-<option value="Inactiva">Inactiva</option>
-</select>
-
-<div class="botones">
-<button type="submit" id="btn-guardar" class="btn">Guardar</button>
-<button type="button" id="btn-cancelar" class="btn">Cancelar</button>
-</div>
-</form>
-<div id="mensaje" class="mensaje"></div>
-</div>
-<script src="./servicio.js"></script>
-<script src="./index.js"></script>
+  <section class="receta-editor-ingredientes">
+    <h2>Editor de Recetas - Asociación</h2>
+    <div class="receta-editor-ingredientes_form">
+      <div class="receta-editor-ingredientes_row">
+        <div>
+          <label>Producto Nutresa</label>
+          <select id="producto-select" required>
+            <option value="">Seleccione un producto Nutresa</option>
+          </select>
+        </div>
+        <div>
+          <label>Cantidad</label>
+          <input id="cantidad-input" type="number" min="1" required placeholder="100">
+        </div>
+      </div>
+      <div class="receta-editor-ingredientes_row">
+        <div>
+          <label>Unidad</label>
+          <select id="unidad-select">
+            <option value="gramos">gramos</option>
+            <option value="unidades">unidades</option>
+            <option value="mililitros">mililitros</option>
+          </select>
+        </div>
+      </div>
+      <button id="btn-agregar-ingrediente" type="button">Agregar Ingrediente</button>
+    </div>
+    <ul id="lista-ingredientes-temporal" class="receta-editor-ingredientes_lista"></ul>
+    <div id="vista-detalle"></div>
+    <button id="btn-guardar-receta" type="button">Actualizar Receta</button>
+  </section>
+  <script type="module" src="index.js"></script>
 </body>
 </html>
