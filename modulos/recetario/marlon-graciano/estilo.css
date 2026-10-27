@@ -1,46 +1,168 @@
-.contenedor {
-  max-width: 500px;
-  margin: 30px auto;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
+:root{
+  --cafe-oscuro: #3E2723;
+  --cafe-claro: #6D4C41;
+  --gris-texto: #9E9E9E;
+  --marfil: #F8F5F0;
+  --marfil-2: #EAE6DF;
+  --blanco: #FFFFFF;
+  --verde-noche: #154022;
+  --verde-nutresa: #21633E;
+  --verde-hoja: #5EA02E;
+  --lima: #A8D500;
+  --verde-agua: #6BB4C3;
+  --rojo-nutresa: #E30613;
+  --radio-borde: 12px;
 }
-.label {
+
+body{
+  background: var(--marfil);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.receta-editor-ingredientes{
+  background: var(--blanco);
+  border: 1.5px solid var(--marfil-2);
+  border-top: 6px solid var(--verde-noche);
+  border-radius: 16px;
+  padding: 28px 32px;
+  width: 90%;
+  max-width: 700px;
+  margin: 40px auto;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+.receta-editor-ingredientes h2{
+  font-family: 'Poppins', sans-serif;
+  color: var(--verde-noche);
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  font-weight: 700;
+}
+
+.receta-editor-ingredientes h2::after{
+  content: '';
   display: block;
-  margin-top: 12px;
+  width: 36px;
+  height: 3px;
+  background: var(--verde-hoja);
+  margin-top: 8px;
+  border-radius: 2px;
 }
-.input {
+
+.receta-editor-ingredientes_form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.receta-editor-ingredientes_row{
+  display: grid;
+  grid-template-columns: 1.5fr 0.6fr;
+  gap: 12px;
+}
+
+.receta-editor-ingredientes_row:nth-child(2){
+  grid-template-columns: 1fr;
+}
+
+.receta-editor-ingredientes_row label{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--gris-texto);
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.receta-editor-ingredientes_row input,
+.receta-editor-ingredientes_row select{
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 11px 12px;
+  border: 1.5px solid var(--marfil-2);
+  background: var(--blanco);
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  outline: none;
+  box-sizing: border-box;
 }
-.botones {
-  margin-top: 20px;
+
+.receta-editor-ingredientes_row input:focus,
+.receta-editor-ingredientes_row select:focus{
+  border-color: var(--verde-nutresa);
+  box-shadow: 0 0 0 3px rgba(94,160,46,0.15);
 }
-.btn {
-  padding: 10px 20px;
+
+#btn-agregar-ingrediente{
+  background: var(--cafe-oscuro);
+  color: var(--blanco);
   border: none;
-  border-radius: 4px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  width: fit-content;
+}
+
+#btn-guardar-receta{
+  background: var(--verde-noche);
+  color: var(--blanco);
+  border: none;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  width: 100%;
+  margin-top: 28px;
   cursor: pointer;
 }
-#btn-guardar {
-  background: #4CAF50;
-  color: white;
+
+#btn-guardar-receta:hover{
+  background: var(--verde-nutresa);
 }
-#btn-cancelar {
-  background: #f44336;
-  color: white;
-  margin-left: 10px;
+
+.receta-editor-ingredientes_lista{
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
-.error {
-  color: red;
-  display: none;
-  font-size: 13px;
-  margin-top: 5px;
+
+.receta-editor-ingredientes_item{
+  background: var(--marfil);
+  border: 1px solid var(--marfil-2);
+  border-left: 4px solid var(--verde-hoja);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--cafe-oscuro);
 }
-#mensaje {
-  margin-top: 15px;
+
+.receta-editor-ingredientes_item button{
+  background: var(--blanco);
+  border: 1px solid var(--marfil-2);
+  color: var(--rojo-nutresa);
+  border-radius: 6px;
+  padding: 3px 9px;
   font-weight: bold;
+  cursor: pointer;
+}
+
+#vista-detalle{
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  color: var(--verde-nutresa);
+  margin-top: 14px;
 }
